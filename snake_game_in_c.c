@@ -26,7 +26,13 @@ void make_logic()
         y++;
         break;
     }
+    default:
+      break;
     
+    }
+    if (x<0 || x>height || y<0 || y>weight)
+    {
+        game_end=1;
     }
 }
 void input()
@@ -55,6 +61,11 @@ void input()
                 flag=4;
                 break;
             }
+            case 'x':
+            {
+                game_end=1;
+                break;
+            }
         
         
         }
@@ -63,6 +74,8 @@ void input()
 }
 void setup()
 {
+    game_end=0;
+
     x=height/2;
     y=weight/2;
 
@@ -78,7 +91,6 @@ void setup()
     if(fruitY==0)
     goto label2;
 
-    game_end=0;
     score=0;
 
 }
@@ -118,9 +130,18 @@ int main()
     setup();
     while (game_end!=1)
     {
-     input();
      frame();
+     input();
      make_logic();
+
+     for (int  m = 0; m < 1000; m++)
+     {
+        for (int n = 0; n < 100000; n++)
+        {
+        }
+        
+     }
+     
     }
     
     
