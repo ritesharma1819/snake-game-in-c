@@ -1,10 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
+
 int height=20,weight=20,x,y,fruitX,fruitY,flag,game_end,score;
 int tailX[100],tailY[100];
 int pre2X,pre2Y;
 int countTail=0;
+
+
 void make_logic()
 {
     int preX=tailX[0];
@@ -53,6 +56,7 @@ void make_logic()
     {
         game_end=1;
     }
+
     for (int i = 0; i < countTail; i++)
     {
        if (x==tailX[i] && y==tailY[i])
@@ -116,6 +120,8 @@ void input()
   
     }
 }
+
+
 void setup()
 {
     game_end=0;
@@ -138,6 +144,8 @@ void setup()
     score=0;
 
 }
+
+
 void frame()
 {
     system("cls");
@@ -181,10 +189,15 @@ void frame()
         }
         printf("\n");
     }
-    
+   printf("Score=%d",score); 
 }
+
+
+
 int main()
 {
+    char c;
+    label5:
     setup();
     while (game_end!=1)
     {
@@ -200,6 +213,12 @@ int main()
         
      }
      
+    }
+    printf("Do you want to play again than press y key:");
+    scanf("%c",&c);
+    if (c=='y'|| c=='Y')
+    {
+        goto label5;
     }
     
     
