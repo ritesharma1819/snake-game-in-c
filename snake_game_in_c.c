@@ -34,6 +34,21 @@ void make_logic()
     {
         game_end=1;
     }
+    if(x==fruitX && y==fruitY)
+    {
+    label3:
+    fruitX=rand()%20;
+    if(fruitX==0)
+    goto label3;
+
+
+    label4:
+    fruitY=rand()%20;
+    if(fruitY==0)
+    goto label4;
+
+    score+=10;
+    }
 }
 void input()
 {
