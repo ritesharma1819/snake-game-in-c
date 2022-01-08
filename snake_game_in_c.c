@@ -2,8 +2,32 @@
 #include<stdlib.h>
 #include<conio.h>
 int height=20,weight=20,x,y,fruitX,fruitY,flag,game_end,score;
+int tailX[100],tailY[100];
+int pre2X,pre2Y;
+int countTail=0;
 void make_logic()
 {
+    int preX=tailX[0];
+    int preY=tailY[0];
+    tailX[0]=x;
+    tailY[0]=y;
+    for ( int i = 1; i < countTail; i++)
+    {
+        pre2X=tailX[i];
+        pre2Y=tailY[i];
+        tailX[i]=preX;
+        tailY[i]=preY;
+        preX=pre2X;
+        preY=pre2Y;
+
+    }
+    
+
+  
+
+
+
+
     switch (flag)
     {
     case 1:
@@ -48,6 +72,7 @@ void make_logic()
     goto label4;
 
     score+=10;
+    countTail++;
     }
 }
 void input()
@@ -112,7 +137,7 @@ void setup()
 void frame()
 {
     system("cls");
-    int i,j;
+    int i,j,k;
     for ( i = 0; i <=height; i++)
     {
         for ( j = 0; j <=weight; j++)
@@ -124,14 +149,28 @@ void frame()
             else
             {
                 if (i==x && j==y)
-                printf(">");
+                printf("O");
                 else if (i==fruitX && j==fruitY)
                 {
                    printf("@");
                 }
             else
-            {  
-              printf(" ");
+            { 
+                 int co=0;
+                for ( k = 0; k < countTail; k++)
+                {
+                   if (i==tailX[k] && j==tailY[k])
+                   {
+                       printf("o");
+                       co=1;
+                   }
+                }
+                if (co==0)
+                {
+                    printf(" ");
+                }
+                 
+              
             }
             }
 
