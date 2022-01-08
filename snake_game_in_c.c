@@ -23,11 +23,6 @@ void make_logic()
     }
     
 
-  
-
-
-
-
     switch (flag)
     {
     case 1:
@@ -58,6 +53,15 @@ void make_logic()
     {
         game_end=1;
     }
+    for (int i = 0; i < countTail; i++)
+    {
+       if (x==tailX[i] && y==tailY[i])
+       {
+          game_end=1;
+       }
+       
+    }
+    
     if(x==fruitX && y==fruitY)
     {
     label3:
